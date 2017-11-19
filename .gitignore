@@ -108,3 +108,7 @@ venv.bak/
 # sqlite
 *.db
 *.sqlite3
+
+# Django
+staticfiles/*
+media/*

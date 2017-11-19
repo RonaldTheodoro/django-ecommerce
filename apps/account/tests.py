@@ -67,3 +67,30 @@ class RegisterViewTest(TestCase):
             self.response.context['form'],
             forms.RegisterForm
         )
+
+
+class RegisterViewCreateTest(TestCase):
+
+    def setUp(self):
+        data = {
+            'username': 'ronaldtheodoro',
+            'email': 'ronald@theodoro.com',
+            'password': 'asdf1234',
+            'password2': 'asdf1234'
+        }
+        self.response = self.client.post(reverse('account:register'), data)
+
+    def test_user_exist(self):
+        """User must exist in database"""
+        user = User.objects.filter(username='ronaldtheodoro')
+        self.assertTrue(user.exists())
+
+    def test_login_redirect(self):
+        """After login user must be redirect to /"""
+        self.assertRedirects(self.response, reverse('core:index'))
+
+    def test_is_authenticated(self):
+        """User must be authenticated"""
+        response = self.client.get(reverse('core:index'))
+        user = response.context.get('user')
+        self.assertTrue(user.is_authenticated)

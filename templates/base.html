@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Commerce</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <script src="{% static 'jquery.js' %}"></script>
+    <script src="{% static 'popper.js' %}"></script>
+    <script src="{% static 'bootstrap.js' %}"></script>
+</body>
+</html>

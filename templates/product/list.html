@@ -2,7 +2,11 @@
 {% block content %}
     {% for product in object_list %}
         <ul>
-            <li>{{ product.title }}</li>
+            <li>
+                <a href="{% url 'product:detail' product.pk %}">
+                    {{ product.title }}
+                </a>
+            </li>
             <li>{{ product.descripition }}</li>
             <li>{{ product.price }}</li>
         </ul>

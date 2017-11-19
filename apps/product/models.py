@@ -23,7 +23,7 @@ class Product(models.Model):
         max_digits=20,
         default=39.99
     )
-    image = models.FileField(
+    image = models.ImageField(
         'image',
         upload_to=upload_image_path,
         null=True,

@@ -12,6 +12,7 @@ python-decouple = "*"
 dj-database-url = "*"
 dj-static = "*"
 pillow = "*"
+"psycopg2" = "*"
 
 
 [dev-packages]

@@ -1,3 +1,5 @@
+import tempfile
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -24,7 +26,8 @@ class ProductDetailViewTest(TestCase):
         models.Product.objects.create(
             title='hat',
             descripition='this is an awesome hat',
-            price=59.99
+            price=59.99,
+            image=tempfile.NamedTemporaryFile(suffix=".jpg").name
         )
         self.response = self.client.get(
             reverse('product:detail', kwargs={'pk': 1})

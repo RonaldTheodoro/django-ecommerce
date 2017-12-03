@@ -29,6 +29,7 @@ class Product(models.Model):
         null=True,
         blank=True
     )
+    featured = models.BooleanField('featured', default=False)
 
     def __str__(self):
         return self.title

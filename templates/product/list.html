@@ -3,7 +3,7 @@
     {% for product in object_list %}
         <ul>
             <li>
-                <a href="{% url 'product:detail' product.pk %}">
+                <a href="{% url 'product:detail' product.slug %}">
                     {{ product.title }}
                 </a>
             </li>

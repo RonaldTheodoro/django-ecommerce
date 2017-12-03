@@ -14,7 +14,7 @@ class ProductFeaturedListView(generic.ListView):
 
     def get_queryset(self, *args, **kwargs):
         request = self.request
-        return models.Product.objects.all()
+        return models.Product.objects.all().filter(featured=True)
 
 
 class ProductDetailView(generic.DetailView):

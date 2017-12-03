@@ -26,12 +26,13 @@ class ProductDetailViewTest(TestCase):
     def setUp(self):
         models.Product.objects.create(
             title='hat',
+            slug='hat',
             descripition='this is an awesome hat',
             price=59.99,
             image=tempfile.NamedTemporaryFile(suffix=".jpg").name
         )
         self.response = self.client.get(
-            reverse('product:detail', kwargs={'pk': 1})
+            reverse('product:detail', kwargs={'slug': 'hat'})
         )
 
     def test_get(self):
@@ -48,7 +49,7 @@ class ProductFailDetailViewTest(TestCase):
 
     def setUp(self):
         self.response = self.client.get(
-            reverse('product:detail', kwargs={'pk': 99})
+            reverse('product:detail', kwargs={'slug': 'asdf'})
         )
 
     def test_get(self):
@@ -75,13 +76,14 @@ class ProductFeaturedDetailViewTest(TestCase):
     def setUp(self):
         models.Product.objects.create(
             title='hat',
+            slug='hat',
             descripition='this is an awesome hat',
             price=59.99,
             image=tempfile.NamedTemporaryFile(suffix=".jpg").name,
             featured=True
         )
         self.response = self.client.get(
-            reverse('product:featured_detail', kwargs={'pk': 1})
+            reverse('product:featured_detail', kwargs={'slug': 'hat'})
         )
 
     @skip

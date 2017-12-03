@@ -16,6 +16,7 @@ def upload_image_path(instance, filename):
 
 class Product(models.Model):
     title = models.CharField('title', max_length=120)
+    slug = models.SlugField('slug', blank=True)
     descripition = models.TextField('descripition')
     price = models.DecimalField(
         'price',
